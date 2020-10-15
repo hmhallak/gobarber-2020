@@ -27,7 +27,7 @@ jobs:
           node-version: 12.x
 
       # Install NPM/Yarn dependencies
-      - name: Install dependecies
+      - name: Install dependencies
         run: yarn
         
       # Run build        
@@ -45,4 +45,36 @@ jobs:
           source: ".,!node_modules"
           target: "~/app/gobarber-2020"
       
+      # Install dependencies on server
+      - name: Install dependencies on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~/app/gobarber-2020
+            yarn
       
+      # Run migrations on server
+      - name: Run migrations on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~/app/gobarber-2020
+            ./node_modules/.bin/typeorm migration:run
+      
+      # Run app service
+      - name: Restart app service
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: pm2 restart gobarber-api
