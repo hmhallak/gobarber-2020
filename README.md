@@ -2,7 +2,8 @@
 # Gobarber 2020
 
 Gobarber is an app built to help barbers and customers to create and manage their appointments. Barbers can manage daily and monthly availiability, and customers can create appointments with available barbers.
-Gobarber 2020 is an app developed during the Rocketseat GoStack Bootcamp on 2020.
+
+Gobarber 2020 is an app developed during the Rocketseat GoStack Bootcamp in 2020.
 
 This app consists of an backend API built with NodeJS and Express, a web app built with ReactJS, and a mobile app built with React Native. You can reach these repositories following the list below:
 	 
