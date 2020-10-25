@@ -10,7 +10,7 @@ Gobarber is an app built to help barbers and customers to create and manage thei
 
 Gobarber 2020 is an app developed during the Rocketseat GoStack Bootcamp in 2020.
 
-This app consists of an backend API built with NodeJS and Express, a web app built with ReactJS, and a mobile app built with React Native. You can reach these repositories following the list below:
+This app consists of a backend API built with NodeJS and Express, a web app built with ReactJS, and a mobile app built with React Native. You can reach these repositories following the list below:
 	 
  - **Meetapp Backend:**: https://github.com/hmhallak/gobarber-2020
  - **Meetapp Web:** https://github.com/hmhallak/gobarber-2020-web
